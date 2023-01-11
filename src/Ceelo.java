@@ -10,7 +10,8 @@ public class Ceelo {
     public void play() {
         System.out.println("Welcome to Cee-lo Dice Game!");
 
-        //creating player objects
+        //creating player and die objects
+        Die die = new Die();
         System.out.print("Enter Player1 Name: ");
         String name = scan.nextLine();
         System.out.print("Wager Amount (You start with 100 chips): ");
@@ -29,6 +30,8 @@ public class Ceelo {
         wager = scan.nextInt();
         scan.nextLine();
         Player player3 = new Player(name, wager);
+
+        System.out.println("Banker Rolls: ");
     }
 
     //private methods

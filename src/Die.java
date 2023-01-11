@@ -14,7 +14,6 @@ public class Die {
         die1 = (int) (Math.random() * 6) + 1;
         die2 = (int) (Math.random() * 6) + 1;
         die3 = (int) (Math.random() * 6) + 1;
-        rollTotal = die1 + die2 + die3;
     }
 
 }
