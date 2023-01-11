@@ -11,17 +11,27 @@ public class Ceelo {
         System.out.println("Welcome to Cee-lo Dice Game!");
 
         //creating player objects
-        System.out.println("Enter Player1 Name: ");
+        System.out.print("Enter Player1 Name: ");
         String name = scan.nextLine();
-        Player player1 = new Player(name);
-        System.out.println("Enter Player2 Name: ");
+        System.out.print("Wager Amount (You start with 100 chips): ");
+        int wager = scan.nextInt();
+        scan.nextLine();
+        Player player1 = new Player(name, wager);
+        System.out.print("Enter Player2 Name: ");
         name = scan.nextLine();
-        Player player2 = new Player(name);
-        System.out.println("Enter Player3 Name: ");
+        System.out.print("Wager Amount (You start with 100 chips): ");
+        wager = scan.nextInt();
+        scan.nextLine();
+        Player player2 = new Player(name, wager);
+        System.out.print("Enter Player3 Name: ");
         name = scan.nextLine();
-        Player player3 = new Player(name);
-
-
+        System.out.print("Wager Amount (You start with 100 chips): ");
+        wager = scan.nextInt();
+        scan.nextLine();
+        Player player3 = new Player(name, wager);
     }
+
+    //private methods
+
 
 }
