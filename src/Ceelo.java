@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Ceelo {
     //instance variables
     private Scanner scan;
+    private Banker banker = new Banker();
 
     //constructor
     public Ceelo() {
@@ -31,15 +32,19 @@ public class Ceelo {
         scan.nextLine();
         Player player3 = new Player(name, wager);
 
-        System.out.println("Banker Rolls: ");
+        //banker rolls
+        banker.bankerRoll();
     }
 
     //private methods
-    private void menu() {
+    private void menu() {          //prints out a menu for the user to chose from
         System.out.println("1. Roll Dice ");
         System.out.println("2. Check Chip Balance ");
         System.out.println("3. Change Wager");
     }
+
+
+
 
 
 }

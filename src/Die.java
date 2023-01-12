@@ -17,6 +17,17 @@ public class Die {
     public int getDie3() {
         return die3;
     }
+    //setter methods
+    public void setDie1(int newDie1) {
+        die1 = newDie1;
+    }
+    public void setDie2(int newDie2) {
+        die2 = newDie2;
+    }
+    public void setDie3(int newDie3) {
+        die3 = newDie3;
+    }
+
 
     //other methods
     public void roll() {
