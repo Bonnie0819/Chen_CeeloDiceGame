@@ -35,6 +35,11 @@ public class Ceelo {
     }
 
     //private methods
+    private void menu() {
+        System.out.println("1. Roll Dice ");
+        System.out.println("2. Check Chip Balance ");
+        System.out.println("3. Change Wager");
+    }
 
 
 }
