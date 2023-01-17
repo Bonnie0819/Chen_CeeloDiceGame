@@ -36,11 +36,14 @@ public class Die {
         die1 = (int) (Math.random() * 6) + 1;
         die2 = (int) (Math.random() * 6) + 1;
         die3 = (int) (Math.random() * 6) + 1;
-        if(die1 > die2) {
-            int temp = die2;
-            die2 = die1;
+        //ordering the dice from least to greatest
+        if(die1 > die2 && die2 > die3) {
+            int temp = die3;
+            die3 = die1;
             die1 = temp;
         }
+
+
     }
 
 
@@ -63,11 +66,11 @@ public class Die {
 
     //checks to see if player/banker wins
     private int win() {
-        if (die1 == die2 == die3) {
+        if (die1 == die2 && die2 == die3) {
             return 0;       // 0 indicates a win
-        } else if (die1 == 4) {
-
-        } else if ()
+        } else if ((die1 == 4 && die2 == 5 && die3 == 6) || (die1 == 5 && die2 == 6 && die3 == 4) || (die1 == 6 && die2 == 4 && die3 ==5)) {
+            return 0;
+        } else if ((die1 == 1 && die2 == 2 && die3 == 3) && (die1 == 2 && die2 == 1 && die3 == 3)) {
             return 1;      // 1 indicates a loss
         }
         return 2;          // 2 indicates reroll
