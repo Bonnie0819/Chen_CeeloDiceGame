@@ -25,10 +25,7 @@ public class Banker {
         int die2 = die.getDie2();
         int die3 = die.getDie3();
         System.out.println("Banker rolls: " + die1 + ", " + die2 + ", " + die3);
-        if(die1 == die2) {
-            die.setDie1(0);
-
-        }
+    }
     }
 
-}
+
