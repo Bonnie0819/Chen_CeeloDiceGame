@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bab67183-5732-4f5c-a8b4-be938bc60d2c" name="Changes" comment="Finishing bankerRoll() and playerRoll()">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Banker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Banker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ceelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ceelo.java" afterDir="false" />
-    </list>
+    <list default="true" id="bab67183-5732-4f5c-a8b4-be938bc60d2c" name="Changes" comment="Finished adding banker outcomes for bankerRolls()" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674055491035</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Finished adding banker outcomes for bankerRolls()">
+      <created>1674057500596</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674057500596</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,7 +135,8 @@
     <MESSAGE value="Ordering the dice from least to greatest" />
     <MESSAGE value="Commit" />
     <MESSAGE value="Finishing bankerRoll() and playerRoll()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finishing bankerRoll() and playerRoll()" />
+    <MESSAGE value="Finished adding banker outcomes for bankerRolls()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished adding banker outcomes for bankerRolls()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -143,7 +147,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Banker.java</url>
-          <line>27</line>
+          <line>31</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

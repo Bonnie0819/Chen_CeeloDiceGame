@@ -31,6 +31,7 @@ public class Ceelo {
         wager = scan.nextInt();
         scan.nextLine();
         Player player3 = new Player(name, wager);
+        System.out.println("---------------------------------------------------");
 
         //banker rolls
         banker.bankerRoll();
