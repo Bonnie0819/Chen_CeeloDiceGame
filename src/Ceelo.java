@@ -35,6 +35,10 @@ public class Ceelo {
 
         //banker rolls
         banker.bankerRoll();
+        while(banker.isWin() == 3) {
+            System.out.println("Invalid Roll! Banker Rerolls!");
+            banker.bankerRoll();
+        }
         if(banker.isWin() == 0) {               //announces how much each player loses after banker wins
             System.out.println("Banker Wins!");
             System.out.println(player1.getName() + " loses " + player1.getWager());
@@ -53,9 +57,6 @@ public class Ceelo {
             player1.add(player3.getWager());
         } else if(banker.isWin() == 2) {
             System.out.println("Banker rolls a double! and scores: " + banker.getScore());
-        } else {
-            System.out.println("Invalid Roll! Banker Rerolls!");
-            banker.bankerRoll();
         }
      }
 

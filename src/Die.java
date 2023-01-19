@@ -48,7 +48,9 @@ public class Die {
         } else if (die1 == 1 && die2 == 2 && die3 == 3) {
             return 1;      // 1 indicates a loss
         } else if(die1 == die2 || die1 == die3 || die2 == die3) {
+            score();
             return 2;
+
         }
         return 3;          // 2 indicates reroll
     }
