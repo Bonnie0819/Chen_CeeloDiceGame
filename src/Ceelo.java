@@ -43,7 +43,7 @@ public class Ceelo {
             while (banker.getBChips() > 0 && (player1.getPChips() > 0 || player2.getPChips() > 0 || player3.getPChips() > 0) && choice != 6) {
                 banker.bankerRoll();
                 while (banker.bWin() == 3) {
-                    System.out.println("Invalid Roll! Banker Rerolls!");
+                    System.out.println("Invalid Roll! Reroll!");
                     banker.bankerRoll();
                 }
                 if (banker.bWin() == 0) {               //announces how much each player loses after banker wins
@@ -81,6 +81,7 @@ public class Ceelo {
                     if (player1.getPChips() > 0) {
                         player1.playerRoll();
                         while (player1.pWin() == 3) {
+                            System.out.println("Invalid Roll! Reroll!");
                             player1.playerRoll();
                         }
                         if (player1.pWin() == 0) {
@@ -111,6 +112,7 @@ public class Ceelo {
                     if (player2.getPChips() > 0) {
                         player2.playerRoll();
                         while (player2.pWin() == 3) {
+                            System.out.println("Invalid Roll! Reroll!");
                             player2.playerRoll();
                         }
                         if (player2.pWin() == 0) {
@@ -141,6 +143,7 @@ public class Ceelo {
                     if (player3.getPChips() > 0) {
                         player3.playerRoll();
                         while (player3.pWin() == 3) {
+                            System.out.println("Invalid Roll! Reroll!");
                             player3.playerRoll();
                         }
                         if (player3.pWin() == 0) {
@@ -168,41 +171,51 @@ public class Ceelo {
                     }
                     System.out.println("---------------------------------------------------");
                 }
-                //prints out the menu
-                while(choice != 4 || choice != 5) {
-                    menu();
-                    System.out.print("Choice: ");
-                    choice = scan.nextInt();
-                    scan.nextLine();
-                    System.out.println("---------------------------------------------------");
-                    if (choice == 1) {
-                        System.out.println(player1.getName() + " has " + player1.getPChips() + " chips");
-                        System.out.println(player2.getName() + " has " + player2.getPChips() + " chips");
-                        System.out.println(player3.getName() + " has " + player3.getPChips() + " chips");
-                    }
-                    if (choice == 2) {
-                        System.out.println("The top score is held by " + Player.topScoreName() + " with " + Player.topScore() + " chips!");
-                    }
-                    if (choice == 3) {
-                        gameRules();
-                    }
-                    if (choice == 4) {
+                if(player1.getPChips() < 0 && player2.getPChips() < 0 && player3.getPChips() < 0) {
+                    System.out.println("Would you like to play again? (1) yes (2) no");
+                    int ans = scan.nextInt();
+                    if(ans == 2) {
                         play = false;
                     }
-                    System.out.println("---------------------------------------------------");
+                } else {
+                    //prints out the menu
+                    while (choice != 4) {
+                        menu();
+                        System.out.print("Choice: ");
+                        choice = scan.nextInt();
+                        scan.nextLine();
+                        System.out.println("---------------------------------------------------");
+                        if (choice == 1) {
+                            System.out.println(player1.getName() + " has " + player1.getPChips() + " chips");
+                            System.out.println(player2.getName() + " has " + player2.getPChips() + " chips");
+                            System.out.println(player3.getName() + " has " + player3.getPChips() + " chips");
+                        }
+                        if (choice == 2) {
+                            System.out.println("The top score is held by " + Player.topScoreName() + " with " + Player.topScore() + " chips!");
+                        }
+                        if (choice == 3) {
+                            gameRules();
+                        }
+                        if (choice == 5) {
+                            play = false;
+                        }
+                        System.out.println("---------------------------------------------------");
+
+                    }
+                }
                     System.out.println("Setting New Wagers: ");
-                    if(player1.getPChips() > 0) {
-                        System.out.println(player1.getName() + " set wager: ");
+                    if (player1.getPChips() > 0) {
+                        System.out.print(player1.getName() + " set wager: ");
                         player1.setWager(scan.nextInt());
                         scan.nextLine();
                     }
-                    if(player2.getPChips() > 0) {
-                        System.out.println(player2.getName() + " set wager: ");
+                    if (player2.getPChips() > 0) {
+                        System.out.print(player2.getName() + " set wager: ");
                         player2.setWager(scan.nextInt());
                         scan.nextLine();
                     }
-                    if(player3.getPChips() > 0) {
-                        System.out.println(player3.getName() + " set wager: ");
+                    if (player3.getPChips() > 0) {
+                        System.out.print(player3.getName() + " set wager: ");
                         player3.setWager(scan.nextInt());
                         scan.nextLine();
                     }
@@ -210,7 +223,7 @@ public class Ceelo {
 
             }
         }
-    }
+
 
         //private methods
         private void menu () {          //prints out a menu for the user to chose from
