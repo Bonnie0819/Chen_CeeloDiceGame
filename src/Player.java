@@ -45,6 +45,9 @@ public class Player {
         wager = newWager;
     }
     public void setScore(int newScore) { score = newScore; }
+    public void setPChips(int newChips) {
+        chips = newChips;
+    }
     //other methods
     public void subtract(int val) {
         chips -= val;

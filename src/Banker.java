@@ -16,6 +16,10 @@ public class Banker {
     public int getBChips() {
         return chips;
     }
+    //setter methods
+    public void setBChips(int newChips) {
+        chips = newChips;
+    }
 
 
     //other methods

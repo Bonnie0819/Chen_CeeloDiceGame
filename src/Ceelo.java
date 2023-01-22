@@ -183,7 +183,7 @@ public class Ceelo {
                     }
                     System.out.println("---------------------------------------------------");
                 }
-                if((player1.getPChips() < 0 && player2.getPChips() < 0 && player3.getPChips() < 0) && banker.getBChips() < 0) {
+                if((player1.getPChips() <= 0 && player2.getPChips() <= 0 && player3.getPChips() <= 0) || banker.getBChips() < 0) {
                     if(banker.getBChips() <= 0) {
                         System.out.println("Banker ran out of chips!");
                         String winner = player1.getName();
@@ -199,7 +199,14 @@ public class Ceelo {
                     }
                     System.out.println("Would you like to play again? (1) yes (2) no");
                     int ans = scan.nextInt();
+                    if(ans == 1) {
+                        player1.setPChips(100);
+                        player2.setPChips(100);
+                        player3.setPChips(100);
+                        banker.setBChips(1000);
+                    }
                     if(ans == 2) {
+                        System.out.println("Thanks for playing Ceelo Dice Game!");
                         play = false;
                     }
                 } else {
