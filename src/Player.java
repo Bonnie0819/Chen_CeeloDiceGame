@@ -28,6 +28,9 @@ public class Player {
     public static int topScore() {
         return topScore;
     }
+    public static String topScoreName() {
+        return topScoreName;
+    }
 
     public int getWager() {
         return wager;
@@ -45,6 +48,11 @@ public class Player {
     //other methods
     public void subtract(int val) {
         chips -= val;
+        if(chips <= 0) {
+            chips = 0;
+            System.out.println(getName() + " has no more chips and is out of the game");
+            wager = 0;
+        }
     }
     public void add(int val) {
         chips += val;
