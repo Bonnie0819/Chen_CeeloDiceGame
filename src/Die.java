@@ -32,7 +32,7 @@ public class Die {
 
 
     //other methods
-    public void roll() {
+    public void roll() {            //rolls the dice and orders it from least to greatest
         die1 = (int) (Math.random() * 6) + 1;
         die2 = (int) (Math.random() * 6) + 1;
         die3 = (int) (Math.random() * 6) + 1;
@@ -49,15 +49,15 @@ public class Die {
             return 1;      // 1 indicates a loss
         } else if(die1 == die2 || die1 == die3 || die2 == die3) {
             score();
-            return 2;
+            return 2;      // 2 indicates that a double has been rolled
 
         }
-        return 3;          // 2 indicates reroll
+        return 3;          // 3 indicates reroll
     }
 
 
     //private helper methods
-    //calculates the score of the dice
+    //calculates the score of the dice when either the banker or player rolls a double
     private void score() {
         if (die1 == die2 && die2 != die3) {
             score = die3;
@@ -70,21 +70,16 @@ public class Die {
         }
     }
 
+    //orders the dice from least to greatest
+    private void order() {
+        int max = Math.max(die1, Math.max(die2, die3));
+        int min = Math.min(die1, Math.min(die2, die3));
+        int mid = die1 + die2 + die3 - max - min;
 
-        //orders the dice from least to greatest
-        private void order() {
-            int max = Math.max(die1, Math.max(die2, die3));
-            int min = Math.min(die1, Math.min(die2, die3));
-            int mid = die1 + die2 + die3 - max - min;
-
-            die1 = min;
-            die2 = mid;
-            die3 = max;
-        }
-
-
-
-
+        die1 = min;
+        die2 = mid;
+        die3 = max;
     }
+}
 
 

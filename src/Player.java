@@ -49,7 +49,7 @@ public class Player {
         chips = newChips;
     }
     //other methods
-    public void subtract(int val) {
+    public void subtract(int val) {     //subtracts chips from the player
         chips -= val;
         if(chips <= 0) {
             chips = 0;
@@ -57,16 +57,16 @@ public class Player {
             wager = 0;
         }
     }
-    public void add(int val) {
+    public void add(int val) {          //adds chips to the player
         chips += val;
-        if(chips > this.topScore) {
+        if(chips > this.topScore) {     //changes the top score if the number of chips a current player has a higher value
             this.topScore = chips;
             this.topScoreName = getName();
         }
     }
 
     //other methods
-    public void playerRoll() {
+    public void playerRoll() {      //helps the player roll and prints out result
         die.roll();
         int die1 = die.getDie1();
         int die2 = die.getDie2();

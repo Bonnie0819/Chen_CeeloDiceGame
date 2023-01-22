@@ -9,7 +9,7 @@ public class Ceelo {
         scan = new Scanner(System.in);
     }
 
-    public void play() {
+    public void play() {            //starts the game
         System.out.println("Welcome to Cee-lo Dice Game!");
         gameRules();
 
@@ -38,9 +38,10 @@ public class Ceelo {
         boolean play = true;
         int choice = 0;
         while(play = true) {
-            //banker rolls
+            //while banker still has chips, one of player still have chips and the game isn't ended, the game will continue
             while (banker.getBChips() > 0 && (player1.getPChips() > 0 || player2.getPChips() > 0 || player3.getPChips() > 0) && choice != 5) {
                 int wagerTotal = player1.getWager() + player2.getWager() + player3.getWager();
+                //banker rolls
                 banker.bankerRoll();
                 while (banker.bWin() == 3) {
                     System.out.println("Invalid Roll! Reroll!");
@@ -77,6 +78,7 @@ public class Ceelo {
                 } else if (banker.bWin() == 2) {
                     System.out.println("Banker rolls a double and scores: " + banker.getBScore());
                     System.out.println("---------------------------------------------------");
+                    //players will roll if they still have chips
                     //rolls for player1
                     if (player1.getPChips() > 0) {
                         player1.playerRoll();
@@ -183,6 +185,10 @@ public class Ceelo {
                     }
                     System.out.println("---------------------------------------------------");
                 }
+                /* checks to see if either all players are broke or if banker is broke
+                   if banker is broke, then player with the highest amount of chips win
+                   if players are broke, banker wins
+                 */
                 if((player1.getPChips() <= 0 && player2.getPChips() <= 0 && player3.getPChips() <= 0) || banker.getBChips() < 0) {
                     if(banker.getBChips() <= 0) {
                         System.out.println("Banker ran out of chips!");
@@ -210,7 +216,7 @@ public class Ceelo {
                         play = false;
                     }
                 } else {
-                    //prints out the menu
+                    //prints out the menu unless the user chooses option 4 which continues the game
                     choice = 0;
                     while (choice != 4) {
                         menu();
@@ -218,7 +224,7 @@ public class Ceelo {
                         choice = scan.nextInt();
                         scan.nextLine();
                         System.out.println("---------------------------------------------------");
-                        if (choice == 1) {
+                        if (choice == 1) {      //prints out how many chips each player and banker have
                             System.out.println(player1.getName() + " has " + player1.getPChips() + " chips");
                             System.out.println(player2.getName() + " has " + player2.getPChips() + " chips");
                             System.out.println(player3.getName() + " has " + player3.getPChips() + " chips");
@@ -237,7 +243,7 @@ public class Ceelo {
 
                     }
                 }
-                    System.out.println("Setting New Wagers: ");
+                    System.out.println("Setting New Wagers: ");     //sets new wagers for player who still have chips
                     if (player1.getPChips() > 0) {
                         System.out.print(player1.getName() + " set wager: ");
                         player1.setWager(scan.nextInt());
@@ -270,7 +276,7 @@ public class Ceelo {
 
 
 
-        private void gameRules () {         //prints out the game rules for Ceelo
+        private void gameRules () {         //prints out the game rules for Ceelo Dice Game
             System.out.println("GAME RULES: \n");
             System.out.println("1. Banker starts with 1000 chips and each player starts with 100 chips.");
             System.out.println("2. Scoring with 3 dice occurs in the following ways: " +
