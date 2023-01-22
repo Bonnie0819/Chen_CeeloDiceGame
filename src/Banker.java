@@ -1,7 +1,6 @@
 public class Banker {
     //instance variables
     private int chips;
-    private int isWin;
     private int score;
     private Die die = new Die();
 
@@ -10,13 +9,14 @@ public class Banker {
         chips = 1000;
     }
     //getter methods
-    public int getScore() {
-        return die.getScore();
+    public int getBScore() {
+        score = die.getScore();
+        return score;
     }
 
 
     //other methods
-    public int isWin() {
+    public int bWin() {
         return die.win();
     }
     public void subtract(int val) {

@@ -24,6 +24,10 @@ public class Player {
     public int getWager() {
         return wager;
     }
+    public int getPScore() {
+        score = die.getScore();
+        return score;
+    }
 
     //setter methods
     public void setWager(int newWager) {
@@ -46,7 +50,9 @@ public class Player {
         int die3 = die.getDie3();
         System.out.println(getName() + "rolls: " + die1 + ", " + die2 + ", " + die3);
 
-
+    }
+    public int pWin() {
+        return die.win();
     }
 
 
