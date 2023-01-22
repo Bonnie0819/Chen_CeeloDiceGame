@@ -50,7 +50,7 @@ public class Player {
         chips -= val;
         if(chips <= 0) {
             chips = 0;
-            System.out.println(this.name + " has no more chips and is out of the game");
+            System.out.println(name + " has no more chips and is out of the game");
             wager = 0;
         }
     }

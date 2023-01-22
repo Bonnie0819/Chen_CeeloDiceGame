@@ -33,14 +33,14 @@ public class Ceelo {
         wager = scan.nextInt();
         scan.nextLine();
         Player player3 = new Player(name, wager);
-        int wagerTotal = player1.getWager() + player2.getWager() + player3.getWager();
         System.out.println("---------------------------------------------------");
 
         boolean play = true;
+        int choice = 0;
         while(play = true) {
             //banker rolls
-            int choice = 0;
-            while (banker.getBChips() > 0 && (player1.getPChips() > 0 || player2.getPChips() > 0 || player3.getPChips() > 0) && choice != 6) {
+            while (banker.getBChips() > 0 && (player1.getPChips() > 0 || player2.getPChips() > 0 || player3.getPChips() > 0) && choice != 5) {
+                int wagerTotal = player1.getWager() + player2.getWager() + player3.getWager();
                 banker.bankerRoll();
                 while (banker.bWin() == 3) {
                     System.out.println("Invalid Roll! Reroll!");
@@ -55,11 +55,11 @@ public class Ceelo {
                     }
                     if(player2.getPChips() > 0) {
                         System.out.println(player2.getName() + " loses " + player2.getWager() + " chips!");
-                        player1.subtract(player2.getWager());
+                        player2.subtract(player2.getWager());
                     }
                     if(player3.getPChips() > 0) {
                         System.out.println(player3.getName() + " loses " + player3.getWager() + " chips!");
-                        player1.subtract(player3.getWager());
+                        player3.subtract(player3.getWager());
                     }
                     System.out.println("Banker gains " + wagerTotal);       //adds the wager amount to banker
                     banker.add(wagerTotal);
@@ -85,23 +85,27 @@ public class Ceelo {
                             player1.playerRoll();
                         }
                         if (player1.pWin() == 0) {
-                            System.out.println(player1.getName() + " wins " + player1.getWager() + " chips!");
+                            System.out.println(player1.getName() + " gains " + player1.getWager() + " chips!");
+                            System.out.println("Banker loses " + player1.getWager() + " chips!");
                             banker.subtract(player1.getWager());
                             player1.add(player1.getWager());
                         } else if (player1.pWin() == 1) {
                             System.out.println(player1.getName() + " loses " + player1.getWager() + " chips!");
+                            System.out.println("Banker gains " + player1.getWager() + " chips!");
                             banker.add(player1.getWager());
                             player1.subtract(player1.getWager());
                         } else if (player1.pWin() == 2) {
                             System.out.println(player1.getName() + " rolls a double and scores: " + player1.getPScore());
                             if (banker.getBScore() > player1.getPScore()) {
-                                System.out.println("The Banker scores higher with a score of " + banker.getBScore());
-                                System.out.println("The Banker wins " + player1.getWager() + " chips!");
+                                System.out.println("Banker scores higher with a score of " + banker.getBScore());
+                                System.out.println(player1.getName() + " loses " + player1.getWager() + " chips!");
+                                System.out.println("Banker gains " + player1.getWager() + " chips!");
                                 banker.add(player1.getWager());
                                 player1.subtract(player1.getWager());
                             } else {
                                 System.out.println(player1.getName() + " scores higher with a score of " + player1.getPScore());
-                                System.out.println(player1.getName() + " wins " + player1.getWager() + " chips!");
+                                System.out.println(player1.getName() + " gains " + player1.getWager() + " chips!");
+                                System.out.println("Banker loses " + player1.getWager() + " chips!");
                                 banker.subtract(player1.getWager());
                                 player1.add(player1.getWager());
                             }
@@ -116,23 +120,27 @@ public class Ceelo {
                             player2.playerRoll();
                         }
                         if (player2.pWin() == 0) {
-                            System.out.println(player2.getName() + " wins " + player2.getWager() + " chips!");
+                            System.out.println(player2.getName() + " gains " + player2.getWager() + " chips!");
+                            System.out.println("Banker loses " + player2.getWager() + " chips!");
                             banker.subtract(player2.getWager());
                             player2.add(player2.getWager());
                         } else if (player2.pWin() == 1) {
                             System.out.println(player2.getName() + " loses " + player2.getWager() + " chips!");
+                            System.out.println("Banker gains " + player2.getWager() + " chips!");
                             banker.add(player2.getWager());
                             player2.subtract(player2.getWager());
                         } else if (player2.pWin() == 2) {
                             System.out.println(player2.getName() + " rolls a double and scores: " + player2.getPScore());
                             if (banker.getBScore() > player2.getPScore()) {
-                                System.out.println("The Banker scores higher with a score of " + banker.getBScore());
-                                System.out.println("The Banker wins " + player2.getWager() + " chips!");
+                                System.out.println("Banker scores higher with a score of " + banker.getBScore());
+                                System.out.println(player2.getName() + " loses " + player2.getWager() + " chips!");
+                                System.out.println("Banker gains " + player2.getWager() + " chips!");
                                 banker.add(player2.getWager());
                                 player2.subtract(player2.getWager());
                             } else {
                                 System.out.println(player2.getName() + " scores higher with a score of " + player2.getPScore());
-                                System.out.println(player2.getName() + " wins " + player2.getWager() + " chips!");
+                                System.out.println(player2.getName() + " gains " + player2.getWager() + " chips!");
+                                System.out.println("Banker loses " + player2.getWager() + " chips!");
                                 banker.subtract(player2.getWager());
                                 player2.add(player2.getWager());
                             }
@@ -147,23 +155,27 @@ public class Ceelo {
                             player3.playerRoll();
                         }
                         if (player3.pWin() == 0) {
-                            System.out.println(player3.getName() + " wins " + player3.getWager() + " chips!");
+                            System.out.println(player3.getName() + " gains " + player3.getWager() + " chips!");
+                            System.out.println("Banker loses " + player3.getWager() + " chips!");
                             banker.subtract(player3.getWager());
                             player3.add(player3.getWager());
                         } else if (player3.pWin() == 1) {
                             System.out.println(player3.getName() + " loses " + player3.getWager() + " chips!");
+                            System.out.println("Banker gains " + player3.getWager() + " chips!");
                             banker.add(player3.getWager());
                             player3.subtract(player3.getWager());
                         } else if (player3.pWin() == 2) {
                             System.out.println(player3.getName() + " rolls a double and scores: " + player3.getPScore());
                             if (banker.getBScore() > player3.getPScore()) {
-                                System.out.println("The Banker scores higher with a score of " + banker.getBScore());
-                                System.out.println("The Banker wins " + player3.getWager() + " chips!");
+                                System.out.println(player3.getName() + " loses " + player3.getWager() + " chips!");
+                                System.out.println("Banker scores higher with a score of " + banker.getBScore());
+                                System.out.println("Banker gains " + player3.getWager() + " chips!");
                                 banker.add(player3.getWager());
                                 player3.subtract(player3.getWager());
                             } else {
                                 System.out.println(player3.getName() + " scores higher with a score of " + player3.getPScore());
-                                System.out.println(player3.getName() + " wins " + player3.getWager() + " chips!");
+                                System.out.println(player3.getName() + " gains " + player3.getWager() + " chips!");
+                                System.out.println("Banker loses " + player3.getWager() + " chips!");
                                 banker.subtract(player3.getWager());
                                 player3.add(player3.getWager());
                             }
@@ -171,7 +183,20 @@ public class Ceelo {
                     }
                     System.out.println("---------------------------------------------------");
                 }
-                if(player1.getPChips() < 0 && player2.getPChips() < 0 && player3.getPChips() < 0) {
+                if((player1.getPChips() < 0 && player2.getPChips() < 0 && player3.getPChips() < 0) && banker.getBChips() < 0) {
+                    if(banker.getBChips() <= 0) {
+                        System.out.println("Banker ran out of chips!");
+                        String winner = player1.getName();
+                        if((player2.getPChips() > player1.getPChips()) && (player2.getPChips() > player3.getPChips())) {
+                            winner = player2.getName();
+                        }
+                        if((player3.getPChips() > player2.getPChips()) && (player3.getPChips() > player1.getPChips())) {
+                            winner = player3.getName();
+                        }
+                        System.out.println(winner + " wins the game with the most chips!");
+                    } else {
+                        System.out.println("All players are out of chips! Banker Wins!");
+                    }
                     System.out.println("Would you like to play again? (1) yes (2) no");
                     int ans = scan.nextInt();
                     if(ans == 2) {
@@ -179,6 +204,7 @@ public class Ceelo {
                     }
                 } else {
                     //prints out the menu
+                    choice = 0;
                     while (choice != 4) {
                         menu();
                         System.out.print("Choice: ");
@@ -189,6 +215,7 @@ public class Ceelo {
                             System.out.println(player1.getName() + " has " + player1.getPChips() + " chips");
                             System.out.println(player2.getName() + " has " + player2.getPChips() + " chips");
                             System.out.println(player3.getName() + " has " + player3.getPChips() + " chips");
+                            System.out.println("Banker has " + banker.getBChips() + " chips");
                         }
                         if (choice == 2) {
                             System.out.println("The top score is held by " + Player.topScoreName() + " with " + Player.topScore() + " chips!");
