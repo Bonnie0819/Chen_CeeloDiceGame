@@ -13,6 +13,9 @@ public class Banker {
         score = die.getScore();
         return score;
     }
+    public int getBChips() {
+        return chips;
+    }
 
 
     //other methods

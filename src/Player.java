@@ -4,6 +4,8 @@ public class Player {
     private int chips;
     private int wager;
     private int score;
+    private static int topScore;
+    private static String topScoreName;
     private Die die = new Die();
 
     //constructor
@@ -12,15 +14,21 @@ public class Player {
         this.wager = wager;
         score = 0;
         chips = 100;
+        topScore = 100;
+        topScoreName = null;
     }
 
     //getter methods
     public String getName() {
         return name;
     }
-    public int getChips() {
+    public int getPChips() {
         return chips;
     }
+    public static int topScore() {
+        return topScore;
+    }
+
     public int getWager() {
         return wager;
     }
@@ -40,6 +48,10 @@ public class Player {
     }
     public void add(int val) {
         chips += val;
+        if(chips > this.topScore) {
+            this.topScore = chips;
+            this.topScoreName = getName();
+        }
     }
 
     //other methods
@@ -48,7 +60,7 @@ public class Player {
         int die1 = die.getDie1();
         int die2 = die.getDie2();
         int die3 = die.getDie3();
-        System.out.println(getName() + "rolls: " + die1 + ", " + die2 + ", " + die3);
+        System.out.println(getName() + " rolls: " + die1 + ", " + die2 + ", " + die3);
 
     }
     public int pWin() {
